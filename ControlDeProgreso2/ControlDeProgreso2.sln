@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlDeProgreso2", "ControlDeProgreso2\ControlDeProgreso2.csproj", "{1033E5FE-D7EA-4E48-88A1-208757BFA6C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clases", "Clases\Clases.csproj", "{337E6901-EC9B-42D4-B2C5-833B95AD1D1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1033E5FE-D7EA-4E48-88A1-208757BFA6C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1033E5FE-D7EA-4E48-88A1-208757BFA6C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1033E5FE-D7EA-4E48-88A1-208757BFA6C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1033E5FE-D7EA-4E48-88A1-208757BFA6C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{337E6901-EC9B-42D4-B2C5-833B95AD1D1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{337E6901-EC9B-42D4-B2C5-833B95AD1D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{337E6901-EC9B-42D4-B2C5-833B95AD1D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{337E6901-EC9B-42D4-B2C5-833B95AD1D1D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {756449B9-F935-4587-80E2-A777A98FA83F}
+	EndGlobalSection
+EndGlobal
