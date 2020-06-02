@@ -17,7 +17,7 @@ namespace Clases
         string nombre;
         string apodo;
         DateTime fechaNacimiento;
-        private int edad;
+        int edad;
         int salud;
         int velocidad;
         int destreza;
