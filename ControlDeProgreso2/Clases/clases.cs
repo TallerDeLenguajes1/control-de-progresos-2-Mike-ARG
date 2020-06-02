@@ -2,7 +2,7 @@
 
 namespace Clases
 {
-    enum Maximos
+    public enum Maximos
     {
         VelocidadMax = 10,
         DestrezaMax = 5,
