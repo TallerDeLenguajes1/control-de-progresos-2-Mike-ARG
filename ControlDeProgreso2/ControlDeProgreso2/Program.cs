@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clases;
+using System;
 
 namespace ControlDeProgreso2
 {
@@ -6,7 +7,7 @@ namespace ControlDeProgreso2
     {
         static void Main(string[] args)
         {
-            
+            Personaje MiPersonaje = new Personaje();
             Random valoresAleatorios = new Random();
             valoresAleatorios.Next(100);
             Console.WriteLine("Hello World!");
