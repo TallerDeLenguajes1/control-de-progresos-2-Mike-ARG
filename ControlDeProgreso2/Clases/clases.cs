@@ -10,6 +10,7 @@ namespace Clases
         NivelMax = 10,
         ArmaduraMax = 10,
         SaludMax = 100,
+        DañoMax = 50000,
     }
 
     public class Personaje
@@ -48,7 +49,7 @@ namespace Clases
             Nombre = nombre;
             Apodo = apodo;
             FechaNacimiento = fecha;
-            Edad = DateTime.Now.Year - fecha.Year;
+            Edad = DateTime.Today.Year - fecha.Year;
             Salud = Convert.ToInt32(Maximos.SaludMax);
             Velocidad = rand.Next(Convert.ToInt32(Maximos.DestrezaMax));
             Destreza = rand.Next(Convert.ToInt32(Maximos.DestrezaMax));
@@ -57,9 +58,49 @@ namespace Clases
             Armadura = rand.Next(Convert.ToInt32(Maximos.ArmaduraMax));
         }
 
-        public void MostrarDatos()
+        public string[] MostrarDatos()
         {
+            string[] datos = { Tipo , Nombre, Apodo, Convert.ToString(FechaNacimiento), Convert.ToString(Edad), Convert.ToString(Salud), Convert.ToString(Velocidad), Convert.ToString(Destreza),
+            Convert.ToString(Fuerza), Convert.ToString(Nivel), Convert.ToString(Armadura)};
 
+            return datos;
+        }
+
+        public int SimularCombate(Personaje Personaje1, Personaje Personaje2)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                int PoderDeDisparo = Personaje1.Destreza * Personaje1.Fuerza * Personaje1.Nivel;
+                int EfectividadDeDisparo = (new Random().Next(100) + 1) / 100;
+                int ValorDeAtaque = PoderDeDisparo * EfectividadDeDisparo;
+                int PoderDeDefensa = Personaje2.Armadura * Personaje2.Velocidad;
+                int DañoProvocado = ((ValorDeAtaque * EfectividadDeDisparo - PoderDeDefensa) / Convert.ToInt32(Maximos.DañoMax)) * 100;
+
+                Personaje2.Salud -= DañoProvocado;
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                int PoderDeDisparo = Personaje2.Destreza * Personaje2.Fuerza * Personaje2.Nivel;
+                int EfectividadDeDisparo = (new Random().Next(100) + 1) / 100;
+                int ValorDeAtaque = PoderDeDisparo * EfectividadDeDisparo;
+                int PoderDeDefensa = Personaje1.Armadura * Personaje1.Velocidad;
+                int DañoProvocado = ((ValorDeAtaque * EfectividadDeDisparo - PoderDeDefensa) / Convert.ToInt32(Maximos.DañoMax)) * 100;
+
+                Personaje1.Salud -= DañoProvocado;
+            }
+
+            if (Personaje1.Salud == Personaje2.Salud)
+            {
+                return 0;
+            } else if (Personaje1.Salud > Personaje2.Salud)
+                {
+                    return 1;
+            } else
+            {
+                return 2;
+            }
+            }
         }
     
     
