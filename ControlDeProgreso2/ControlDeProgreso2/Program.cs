@@ -21,9 +21,31 @@ namespace ControlDeProgreso2
                 string Nombre = OpcionesDeNombres[new Random().Next(OpcionesDeNombres.Length)];
                 string Apodo = OpcionesDeApodos[new Random().Next(OpcionesDeApodos.Length)];
                 DateTime FechaNac = Helper.FechaAleatoria(300);
-
                 MiPersonaje.CargarDatos(Nombre, Apodo, FechaNac);
+                ListaDePersonajes.Add(MiPersonaje);
             }
+
+            Personaje Personaje1 = ListaDePersonajes[0];
+            Personaje Personaje2 = ListaDePersonajes[1];
+
+            for (int i = 0; i < 3; i++)
+            {
+                Personaje1.Atacar(Personaje2);
+                Personaje2.Atacar(Personaje1);
+            }
+
+            if (Personaje1.Salud > Personaje2.Salud)
+            {
+                ListaDePersonajes.Remove(Personaje2);
+                Personaje1.Salud = Convert.ToInt32(Maximos.SaludMax);
+                Personaje1.Salud += 10;
+            } else if (Personaje1.Salud < Personaje2.Salud)
+            {
+                ListaDePersonajes.Remove(Personaje1);
+                Personaje2.Salud = Convert.ToInt32(Maximos.SaludMax);
+                Personaje2.Salud += 10;
+            }
+
         }
     }
 }

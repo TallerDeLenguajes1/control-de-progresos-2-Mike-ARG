@@ -65,46 +65,18 @@ namespace Clases
 
             return datos;
         }
-
-        public int SimularCombate(Personaje Personaje1, Personaje Personaje2)
+        
+        public void Atacar(Personaje Personaje)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                int PoderDeDisparo = Personaje1.Destreza * Personaje1.Fuerza * Personaje1.Nivel;
-                int EfectividadDeDisparo = (new Random().Next(100) + 1) / 100;
-                int ValorDeAtaque = PoderDeDisparo * EfectividadDeDisparo;
-                int PoderDeDefensa = Personaje2.Armadura * Personaje2.Velocidad;
-                int DañoProvocado = ((ValorDeAtaque * EfectividadDeDisparo - PoderDeDefensa) / Convert.ToInt32(Maximos.DañoMax)) * 100;
+            int PoderDeDisparo = Destreza * Fuerza * Nivel;
+            int EfectividadDeDisparo = (new Random().Next(100) + 1) / 100;
+            int ValorDeAtaque = PoderDeDisparo * EfectividadDeDisparo;
+            int PoderDeDefensa = Personaje.Armadura * Personaje.Velocidad;
+            int DañoProvocado = ((ValorDeAtaque * EfectividadDeDisparo - PoderDeDefensa) / Convert.ToInt32(Maximos.DañoMax)) * 100;
 
-                Personaje2.Salud -= DañoProvocado;
-            }
-
-            for (int i = 0; i < 3; i++)
-            {
-                int PoderDeDisparo = Personaje2.Destreza * Personaje2.Fuerza * Personaje2.Nivel;
-                int EfectividadDeDisparo = (new Random().Next(100) + 1) / 100;
-                int ValorDeAtaque = PoderDeDisparo * EfectividadDeDisparo;
-                int PoderDeDefensa = Personaje1.Armadura * Personaje1.Velocidad;
-                int DañoProvocado = ((ValorDeAtaque * EfectividadDeDisparo - PoderDeDefensa) / Convert.ToInt32(Maximos.DañoMax)) * 100;
-
-                Personaje1.Salud -= DañoProvocado;
-            }
-
-            if (Personaje1.Salud == Personaje2.Salud)
-            {
-                return 0;
-            } else if (Personaje1.Salud > Personaje2.Salud)
-            {
-                return 1;
-            } else
-            {
-                return 2;
-            }
+            Personaje.Salud -= DañoProvocado;
         }
     }
-    
-    
-}
 
     public static class Helper
     {
