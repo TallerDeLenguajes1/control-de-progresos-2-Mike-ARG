@@ -94,17 +94,17 @@ namespace Clases
             {
                 return 0;
             } else if (Personaje1.Salud > Personaje2.Salud)
-                {
-                    return 1;
+            {
+                return 1;
             } else
             {
                 return 2;
             }
-            }
         }
-    
-    
     }
+    
+    
+}
 
     public static class Helper
     {
