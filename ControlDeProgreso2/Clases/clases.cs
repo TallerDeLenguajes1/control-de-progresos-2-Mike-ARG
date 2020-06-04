@@ -39,31 +39,40 @@ namespace Clases
         public int Armadura { get => armadura; set => armadura = value; }
     
     
-        public Personaje CargarDatos(Personaje Personaje)
+        public void CargarDatos(string nombre, string apodo, DateTime fecha)
         {
             string[] tiposPersonajes = { "Duende", "Caballero", "Mago", "Troll", "Humano" };
             Random rand = new Random();
 
-            Personaje.Tipo = tiposPersonajes[rand.Next(tiposPersonajes.Length)]; //Selecciona un tipo de personaje al azar
+            Tipo = tiposPersonajes[rand.Next(tiposPersonajes.Length)]; //Selecciona un tipo de personaje al azar
+            Nombre = nombre;
+            Apodo = apodo;
+            FechaNacimiento = fecha;
+            Edad = DateTime.Now.Year - fecha.Year;
+            Salud = Convert.ToInt32(Maximos.SaludMax);
+            Velocidad = rand.Next(Convert.ToInt32(Maximos.DestrezaMax));
+            Destreza = rand.Next(Convert.ToInt32(Maximos.DestrezaMax));
+            Fuerza = rand.Next(Convert.ToInt32(Maximos.FuerzaMax));
+            Nivel = rand.Next(Convert.ToInt32(Maximos.NivelMax));
+            Armadura = rand.Next(Convert.ToInt32(Maximos.ArmaduraMax));
+        }
 
-            Console.WriteLine("Ingrese el nombre del personaje: ");
-            Personaje.Nombre = Console.ReadLine();
-            Console.WriteLine("Ingrese el apodo del personaje: ");
-            Personaje.Apodo = Console.ReadLine();
-            Console.WriteLine("Ingrese la fecha de nacimiento del personaje: ");
-            Personaje.FechaNacimiento = Convert.ToDateTime(Console.ReadLine());
-            Personaje.Edad = DateTime.Now.Year - Personaje.FechaNacimiento.Year;
-            Personaje.Salud = Convert.ToInt32(Maximos.SaludMax);
-            Personaje.Velocidad = rand.Next(Convert.ToInt32(Maximos.DestrezaMax));
-            Personaje.Destreza = rand.Next(Convert.ToInt32(Maximos.DestrezaMax));
-            Personaje.Fuerza = rand.Next(Convert.ToInt32(Maximos.FuerzaMax));
-            Personaje.Nivel = rand.Next(Convert.ToInt32(Maximos.NivelMax));
-            Personaje.Armadura = rand.Next(Convert.ToInt32(Maximos.ArmaduraMax));
+        public void MostrarDatos()
+        {
 
-
-            return Personaje;
         }
     
     
+    }
+
+    public static class Helper
+    {
+        public static DateTime FechaAleatoria(int anios)
+        {
+            Random gen = new Random();
+            DateTime start = DateTime.Today.AddDays(-anios);
+            int range = (DateTime.Today - start).Days;
+            return start.AddDays(gen.Next(range));
+        }
     }
 }

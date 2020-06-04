@@ -1,5 +1,6 @@
 ﻿using Clases;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace ControlDeProgreso2
 {
@@ -8,9 +9,8 @@ namespace ControlDeProgreso2
         static void Main(string[] args)
         {
             Personaje MiPersonaje = new Personaje();
-            Random valoresAleatorios = new Random();
-            valoresAleatorios.Next(100);
-            Console.WriteLine("Hello World!");
+            DateTime fechaAleatoria = Helper.FechaAleatoria(300);
+            MiPersonaje.CargarDatos("Pablo", "El Jefe", fechaAleatoria);
         }
     }
 }
